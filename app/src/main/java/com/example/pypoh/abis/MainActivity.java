@@ -15,4 +15,7 @@ public class MainActivity extends AppCompatActivity {
         //aksfagfibcgsgsjaGANC
         //ABISSSSSSSSSSS
     }
+    public void buka(){
+        String s = (String)"ABis";
+    }
 }
