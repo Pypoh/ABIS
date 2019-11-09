@@ -14,4 +14,13 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+    <string-array name="android_dropdown_kategori">
+        <item>Pilih Kategori</item>
+        <item>Makanan</item>
+        <item>Minuman</item>
+        <item>Peralatan Mandi</item>
+        <item>Peralatan Sekolah</item>
+    </string-array>
+
 </resources>
