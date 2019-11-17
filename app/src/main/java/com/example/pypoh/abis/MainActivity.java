@@ -12,10 +12,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //aksfagfibcgsgsjaGANC
-        //ABISSSSSSSSSSS
     }
-    public void buka(){
-        String s = (String)"ABis";
-    }
+
 }

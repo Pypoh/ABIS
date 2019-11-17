@@ -3,13 +3,13 @@
     <group>
         <item android:id="@+id/nav_item_one"
             android:icon="@drawable/ic_android_black_24dp"
-            android:title="Item 1" />
+            android:title="Dashboard" />
         <item android:id="@+id/nav_item_two"
             android:icon="@drawable/ic_android_black_24dp"
-            android:title="Item 2" />
+            android:title="Daftar Transaksi" />
         <item android:id="@+id/nav_item_three"
             android:icon="@drawable/ic_android_black_24dp"
-            android:title="Item 3" />
+            android:title="Logout" />
     </group>
 
 <!--    <group android:id="@+id/group_menu">-->

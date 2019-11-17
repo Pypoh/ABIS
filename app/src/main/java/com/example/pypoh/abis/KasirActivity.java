@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.res.Configuration;
 import android.os.Build;
@@ -16,15 +18,18 @@ import android.os.PersistableBundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.pypoh.abis.Kasir.DaftarTransaksi;
+import com.example.pypoh.abis.Kasir.DashboardKasir;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.Objects;
 
 public class KasirActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle drawerToggle;
     private DrawerLayout drawerKasir;
     private NavigationView navigationViewKasir;
+
+    private DashboardKasir dashboardKasir = new DashboardKasir();
+    private DaftarTransaksi daftarTransaksi = new DaftarTransaksi();
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -44,22 +49,27 @@ public class KasirActivity extends AppCompatActivity {
 
 //        getSupportActionBar().setHomeButtonEnabled(true);
 
+        setFragment(dashboardKasir);
+
         navigationViewKasir = findViewById(R.id.nav_view_kasir);
         navigationViewKasir.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Toast.makeText(getApplicationContext(), "Item Zero", Toast.LENGTH_SHORT).show();
                 switch (menuItem.getItemId()) {
                     case R.id.nav_item_one:
                         Toast.makeText(getApplicationContext(), "Item One", Toast.LENGTH_SHORT).show();
-                        return true;
+                        setFragment(dashboardKasir);
+                        break;
                     case R.id.nav_item_two:
                         Toast.makeText(getApplicationContext(), "Item Two", Toast.LENGTH_SHORT).show();
-                        return true;
+                        setFragment(daftarTransaksi);
+                        break;
                     case R.id.nav_item_three:
                         Toast.makeText(getApplicationContext(), "Item Three", Toast.LENGTH_SHORT).show();
-                        return true;
+                        break;
                 }
-
+                drawerKasir.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
@@ -71,11 +81,11 @@ public class KasirActivity extends AppCompatActivity {
         drawerToggle.syncState();
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        drawerToggle.onConfigurationChanged(newConfig);
-    }
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        drawerToggle.onConfigurationChanged(newConfig);
+//    }
 
     @Override
     public void onBackPressed() {
@@ -92,5 +102,12 @@ public class KasirActivity extends AppCompatActivity {
             return true;
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setFragment(Fragment fragment) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.main_frame_kasir, fragment, "MAIN_FRAGMENT");
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
