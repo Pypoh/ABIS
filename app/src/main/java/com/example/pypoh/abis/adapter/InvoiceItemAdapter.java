@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +33,11 @@ public class InvoiceItemAdapter extends  RecyclerView.Adapter<InvoiceItemAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        ItemModel data = dataSet.get(position);
+
+        holder.textName.setText(data.getName());
+        holder.textPrice.setText(data.getPrice() + "");
+        holder.textQuantity.setText(data.getQuantity() + "");
     }
 
     @Override
@@ -40,8 +46,15 @@ public class InvoiceItemAdapter extends  RecyclerView.Adapter<InvoiceItemAdapter
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView textQuantity, textName, textPrice;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            textQuantity = itemView.findViewById(R.id.text_quantity_invoice);
+            textName = itemView.findViewById(R.id.text_name_item_invoice);
+            textPrice = itemView.findViewById(R.id.text_price_item_invoice);
         }
     }
 }

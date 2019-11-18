@@ -46,7 +46,9 @@ public class DashboardKasir extends Fragment {
 
         setupViews(view);
 
-        setupDummyData();
+        if (dummyData.isEmpty()) {
+            setupDummyData();
+        }
 
         setupRV();
 
@@ -62,6 +64,7 @@ public class DashboardKasir extends Fragment {
         dashboardItemAdapter.setOnItemClickListener(new DashboardItemAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ItemModel itemModel) {
+//                Toast.makeText(getContext(), "Clicked", Toast.LENGTH_SHORT).show();
                 int quantityAdded = itemModel.getQuantity();
                 if (quantityAdded == 0) {
                     if (!dummyInvoice.isEmpty()) {
@@ -82,12 +85,18 @@ public class DashboardKasir extends Fragment {
                         for (ItemModel item : dummyInvoice) {
                             if (item.getName().equalsIgnoreCase(itemModel.getName())) {
                                 item.setQuantity(quantityAdded);
+                                Toast.makeText(getContext(), "Item Updated", Toast.LENGTH_SHORT).show();
                                 dashboardItemAdapter.notifyDataSetChanged();
                                 invoiceItemAdapter.notifyDataSetChanged();
                                 return;
                             }
                         }
+                        Toast.makeText(getContext(), "Item Added", Toast.LENGTH_SHORT).show();
                         dummyInvoice.add(itemModel);
+                    } else {
+                        dummyInvoice.add(itemModel);
+                        Toast.makeText(getContext(), "Item Added", Toast.LENGTH_SHORT).show();
+
                     }
                 }
 
@@ -107,19 +116,17 @@ public class DashboardKasir extends Fragment {
     }
 
     private void setupDummyData() {
-        dummyData.add(new ItemModel(null, "Item 1", 10000, 0, 10));
-        dummyData.add(new ItemModel(null, "Item 2", 10000, 0, 10));
-        dummyData.add(new ItemModel(null, "Item 3", 10000, 0, 10));
-        dummyData.add(new ItemModel(null, "Item 4", 10000, 0, 10));
-        dummyData.add(new ItemModel(null, "Item 5", 10000, 0, 10));
-        dummyData.add(new ItemModel(null, "Item 6", 10000, 0, 10));
-        dummyData.add(new ItemModel(null, "Item 7", 10000, 0, 10));
-        dummyData.add(new ItemModel(null, "Item 8", 10000, 0, 10));
-        dummyData.add(new ItemModel(null, "Item 9", 10000, 0, 10));
+        dummyData.add(new ItemModel(null, "Conton nama barang 1", 10000, 0, 10));
+        dummyData.add(new ItemModel(null, "Contoh nama barang 2", 10000, 0, 10));
+        dummyData.add(new ItemModel(null, "Contoh nama barang 3", 10000, 0, 10));
+        dummyData.add(new ItemModel(null, "COntoh nama barang 4", 10000   , 0, 10));
+        dummyData.add(new ItemModel(null, "Contoh nama barang 5", 10000, 0, 10));
+        dummyData.add(new ItemModel(null, "Contoh nama barang 6", 10000, 0, 10));
+        dummyData.add(new ItemModel(null, "Contoh nama barang 7", 10000, 0, 10));
+        dummyData.add(new ItemModel(null, "Contoh nama barang 8", 10000, 0, 10));
+        dummyData.add(new ItemModel(null, "Contoh nama barang 9", 10000, 0, 10));
         dummyData.add(new ItemModel(null, "Item 10", 10000, 0, 10));
 
-        dummyInvoice.add(new ItemModel(null, "Item 10", 10000, 0, 10));
-        dummyInvoice.add(new ItemModel(null, "Item 10", 10000, 0, 10));
     }
 
 }
