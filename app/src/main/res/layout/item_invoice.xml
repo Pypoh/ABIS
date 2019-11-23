@@ -40,7 +40,8 @@
 
                 <LinearLayout
                     android:id="@+id/layout_name_item_invouce"
-                    android:layout_width="wrap_content"
+                    android:paddingRight="24dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"

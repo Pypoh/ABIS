@@ -1,23 +1,24 @@
 package com.example.pypoh.abis.Kasir;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.example.pypoh.abis.R;
 import com.example.pypoh.abis.adapter.DashboardItemAdapter;
 import com.example.pypoh.abis.adapter.InvoiceItemAdapter;
+import com.example.pypoh.abis.helper.DBHelper;
+import com.example.pypoh.abis.helper.Transaksi;
 import com.example.pypoh.abis.model.ItemModel;
 
 import java.util.ArrayList;
@@ -33,6 +34,11 @@ public class DashboardKasir extends Fragment {
 
     private List<ItemModel> dummyData = new ArrayList<>();
     private List<ItemModel> dummyInvoice = new ArrayList<>();
+
+    private DBHelper db;
+
+    // Views
+    Button buttonCheckout;
 
     public DashboardKasir() {
         // Required empty public constructor
@@ -53,6 +59,32 @@ public class DashboardKasir extends Fragment {
         setupRV();
 
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        db = new DBHelper(this.getContext());
+
+        buttonCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Insert Data
+                insertTransaksiToDB();
+            }
+        });
+
+    }
+
+    private void insertTransaksiToDB() {
+        int totalHarga = 0;
+        for (ItemModel item : dummyInvoice) {
+            totalHarga += item.getPrice();
+        }
+
+        db.insertTransaksi(new Transaksi("INV/0101012019", invoiceItemAdapter.getItemCount(), totalHarga, ""));
+        Toast.makeText(getContext(), "Transaksi Berhasil Dimasukkan", Toast.LENGTH_SHORT).show();
     }
 
     private void setupRV() {
@@ -113,6 +145,7 @@ public class DashboardKasir extends Fragment {
     private void setupViews(View view) {
         recyclerItem = view.findViewById(R.id.recycler_dashboard);
         recyclerInvoice = view.findViewById(R.id.recycler_invoice);
+        buttonCheckout = view.findViewById(R.id.button_checkout);
     }
 
     private void setupDummyData() {

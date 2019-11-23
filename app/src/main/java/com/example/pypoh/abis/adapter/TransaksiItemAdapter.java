@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pypoh.abis.R;
+import com.example.pypoh.abis.helper.Transaksi;
 import com.example.pypoh.abis.model.TransaksiModel;
 
 import java.util.List;
@@ -16,9 +17,9 @@ import java.util.List;
 public class TransaksiItemAdapter extends RecyclerView.Adapter<TransaksiItemAdapter.ViewHolder> {
 
     private Context mContext;
-    private List<TransaksiModel> mDataset;
+    private List<Transaksi> mDataset;
 
-    public TransaksiItemAdapter(Context mContext, List<TransaksiModel> mDataset) {
+    public TransaksiItemAdapter(Context mContext, List<Transaksi> mDataset) {
         this.mContext = mContext;
         this.mDataset = mDataset;
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 
 import com.example.pypoh.abis.R;
 import com.example.pypoh.abis.adapter.TransaksiItemAdapter;
+import com.example.pypoh.abis.helper.DBHelper;
+import com.example.pypoh.abis.helper.Transaksi;
 import com.example.pypoh.abis.model.TransaksiModel;
 
 import java.util.ArrayList;
@@ -24,7 +27,9 @@ public class DaftarTransaksi extends Fragment {
 
     private RecyclerView transaksiRecycler;
     private TransaksiItemAdapter transaksiAdapter;
-    private List<TransaksiModel> tempData = new ArrayList<>();
+    private List<Transaksi> tempData = new ArrayList<>();
+
+    private DBHelper db;
 
     public DaftarTransaksi() {
         // Required empty public constructor
@@ -35,6 +40,8 @@ public class DaftarTransaksi extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_daftar_transaksi, container, false);
+
+        db = new DBHelper(this.getContext());
 
         if (tempData.isEmpty()) {
             setupData();
@@ -50,10 +57,13 @@ public class DaftarTransaksi extends Fragment {
 
     private void setupData() {
 
-        tempData.add(new TransaksiModel());
-        tempData.add(new TransaksiModel());
-        tempData.add(new TransaksiModel());
-        tempData.add(new TransaksiModel());
+//        tempData.add(new TransaksiModel());
+//        tempData.add(new TransaksiModel());
+//        tempData.add(new TransaksiModel());
+//        tempData.add(new TransaksiModel());
+
+        tempData.addAll(db.getAllTransaksi());
+
     }
 
 
