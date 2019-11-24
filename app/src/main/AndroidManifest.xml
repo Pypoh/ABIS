@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="landscape"></activity>
-        <activity android:name=".KasirActivity"
+        <activity android:name=".Auth.AuthActivity"></activity>
+        <activity android:name=".Manager.ManagerActivity" />
+        <activity android:name=".Gudang.GudangActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".KasirActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
