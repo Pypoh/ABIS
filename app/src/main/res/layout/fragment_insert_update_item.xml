@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".InsertUpdateItem">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <TextView
+                android:id="@+id/tambah_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tambah Barang"
+                android:textStyle="bold"
+                android:textSize="36sp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <ImageView
+                android:id="@+id/tambah_image_input"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tambah_header"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="24dp"
+                android:src="#707070"/>
+
+            <LinearLayout
+                android:id="@+id/layout_nama_barang_new"
+                app:layout_constraintTop_toBottomOf="@id/tambah_image_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="24dp">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Barang : "
+                    android:textSize="24sp"
+                    />
+
+                <EditText
+                    android:id="@+id/nama_barang_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan nama barang"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_harga_barang_new"
+                app:layout_constraintTop_toBottomOf="@id/layout_nama_barang_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Harga Barang : "
+                    android:textSize="24sp"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/harga_barang_new"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan harga barang"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_stock_barang_new"
+                app:layout_constraintTop_toBottomOf="@id/layout_harga_barang_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Stock Barang : "
+                    android:textSize="24sp"
+                    />
+
+                <EditText
+                    android:id="@+id/stock_barang_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan stock barang"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_tambah"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="Tambah"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_stock_barang_new"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="32dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#707070"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <TextView
+                android:id="@+id/perbarui_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perbarui Barang"
+                android:textStyle="bold"
+                android:textSize="36sp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <ImageView
+                android:id="@+id/perbarui_image_input"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/perbarui_header"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="24dp"
+                android:src="#707070"/>
+
+            <LinearLayout
+                android:id="@+id/layout_nama_barang"
+                app:layout_constraintTop_toBottomOf="@id/perbarui_image_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="24dp">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Barang : "
+                    android:textSize="24sp"
+                    />
+
+                <EditText
+                    android:id="@+id/nama_barang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan nama barang"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_harga_barang"
+                app:layout_constraintTop_toBottomOf="@id/layout_nama_barang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Harga Barang : "
+                    android:textSize="24sp"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/harga_barang"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan harga barang"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_stock_barang"
+                app:layout_constraintTop_toBottomOf="@id/layout_harga_barang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Stock Barang : "
+                    android:textSize="24sp"
+                    />
+
+                <EditText
+                    android:id="@+id/stock_barang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan stock barang"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_perbarui"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="Perbarui"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_stock_barang"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="32dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

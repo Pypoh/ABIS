@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -39,6 +40,7 @@ public class DashboardKasir extends Fragment {
 
     // Views
     Button buttonCheckout;
+    private TextView totalHargaTextView;
 
     public DashboardKasir() {
         // Required empty public constructor
@@ -49,6 +51,8 @@ public class DashboardKasir extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_dashboard_kasir, container, false);
+
+        totalHargaTextView = view.findViewById(R.id.text_total_price_kasir);
 
         setupViews(view);
 
@@ -78,6 +82,7 @@ public class DashboardKasir extends Fragment {
     }
 
     private void insertTransaksiToDB() {
+        // getHargaTotal
         int totalHarga = 0;
         for (ItemModel item : dummyInvoice) {
             totalHarga += item.getPrice();
@@ -131,7 +136,7 @@ public class DashboardKasir extends Fragment {
 
                     }
                 }
-
+                totalHargaTextView.setText("Rp" + getTotalHarga());
                 dashboardItemAdapter.notifyDataSetChanged();
                 invoiceItemAdapter.notifyDataSetChanged();
             }
@@ -140,6 +145,14 @@ public class DashboardKasir extends Fragment {
         recyclerInvoice.setLayoutManager(new LinearLayoutManager(this.getContext()));
         invoiceItemAdapter = new InvoiceItemAdapter(getContext(), dummyInvoice);
         recyclerInvoice.setAdapter(invoiceItemAdapter);
+    }
+
+    private int getTotalHarga() {
+        int totalHarga = 0;
+        for (ItemModel item : dummyInvoice) {
+            totalHarga += item.getPrice();
+        }
+        return totalHarga;
     }
 
     private void setupViews(View view) {

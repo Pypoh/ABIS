@@ -132,9 +132,10 @@
                         android:layout_alignParentLeft="true"/>
 
                     <TextView
+                        android:id="@+id/text_total_price_kasir"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp30.000"
+                        android:text="Rp0"
                         android:textSize="24sp"
                         android:layout_alignParentRight="true"
                         android:textStyle="bold"/>

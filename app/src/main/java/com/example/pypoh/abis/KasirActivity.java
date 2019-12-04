@@ -32,6 +32,7 @@ public class KasirActivity extends AppCompatActivity {
 
     private DashboardKasir dashboardKasir = new DashboardKasir();
     private DaftarTransaksi daftarTransaksi = new DaftarTransaksi();
+    private InsertUpdateItem insertUpdateItem = new InsertUpdateItem();
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -74,6 +75,9 @@ public class KasirActivity extends AppCompatActivity {
                         startActivity(toLogin);
                         finish();
                         break;
+                    case R.id.nav_item_four:
+                        setFragment(insertUpdateItem);
+
                 }
                 drawerKasir.closeDrawer(GravityCompat.START);
                 return true;

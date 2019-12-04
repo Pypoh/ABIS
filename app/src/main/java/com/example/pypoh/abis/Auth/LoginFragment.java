@@ -1,13 +1,7 @@
 package com.example.pypoh.abis.Auth;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.pypoh.abis.Gudang.GudangActivity;
 import com.example.pypoh.abis.KasirActivity;
+import com.example.pypoh.abis.Manager.ManagerActivity;
 import com.example.pypoh.abis.R;
 
 public class LoginFragment extends Fragment {
@@ -50,18 +49,34 @@ public class LoginFragment extends Fragment {
                 String username = inputUsername.getText().toString();
                 String password = inputPassword.getText().toString();
 
-                login(username, password);
+                AuthenticateUser(username, password);
             }
         });
     }
 
-    private void login(String username, String password) {
+    private void AuthenticateUser(String username, String password) {
         if (username.equals("kasir") && password.equals("kasir")) {
             toMain();
+        } else if (username.equals("manager") && password.equals("manager")) {
+            toManager();
+        } else if (username.equals("gudang") && password.equals("gudang")) {
+            toGudang();
         } else {
             Toast.makeText(getContext(), "Username atau password salah", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private void toGudang() {
+        Intent toMainIntent = new Intent(getActivity(), GudangActivity.class);
+        startActivity(toMainIntent);
+        getActivity().finish();
+    }
+
+    private void toManager() {
+        Intent toMainIntent = new Intent(getActivity(), ManagerActivity.class);
+        startActivity(toMainIntent);
+        getActivity().finish();
     }
 
     private void toMain() {

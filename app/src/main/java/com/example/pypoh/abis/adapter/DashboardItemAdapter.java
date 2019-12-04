@@ -69,9 +69,11 @@ public class DashboardItemAdapter extends RecyclerView.Adapter<DashboardItemAdap
     private void updateBarang(View view, ItemModel data) {
         if (view.getId() == R.id.image_min) {
             if (data.getQuantity() > 0) {
+                //tambahBarang()
                 data.setQuantity(data.getQuantity() - 1);
             }
         } else {
+            //kurangBarang()
             data.setQuantity(data.getQuantity() + 1);
         }
     }
