@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.os.PersistableBundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.pypoh.abis.Auth.AuthActivity;
 import com.example.pypoh.abis.Kasir.DaftarTransaksi;
 import com.example.pypoh.abis.Kasir.DashboardKasir;
 import com.google.android.material.navigation.NavigationView;
@@ -55,18 +57,22 @@ public class KasirActivity extends AppCompatActivity {
         navigationViewKasir.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Toast.makeText(getApplicationContext(), "Item Zero", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Item Zero", Toast.LENGTH_SHORT).show();
                 switch (menuItem.getItemId()) {
                     case R.id.nav_item_one:
-                        Toast.makeText(getApplicationContext(), "Item One", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), "Item One", Toast.LENGTH_SHORT).show();
                         setFragment(dashboardKasir);
                         break;
                     case R.id.nav_item_two:
-                        Toast.makeText(getApplicationContext(), "Item Two", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), "Item Two", Toast.LENGTH_SHORT).show();
                         setFragment(daftarTransaksi);
                         break;
                     case R.id.nav_item_three:
-                        Toast.makeText(getApplicationContext(), "Item Three", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), "Item Three", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(KasirActivity.this, "Anda telah keluar", Toast.LENGTH_SHORT).show();
+                        Intent toLogin = new Intent(KasirActivity.this, AuthActivity.class);
+                        startActivity(toLogin);
+                        finish();
                         break;
                 }
                 drawerKasir.closeDrawer(GravityCompat.START);

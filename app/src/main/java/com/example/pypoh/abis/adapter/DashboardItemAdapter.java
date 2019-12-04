@@ -46,20 +46,34 @@ public class DashboardItemAdapter extends RecyclerView.Adapter<DashboardItemAdap
         holder.imageMin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if (data.getQuantity() > 0) {
-                   data.setQuantity(data.getQuantity()-1);
-                   holder.itemQuantity.setText(data.getQuantity() + "");
-               }
+                updateBarang(holder.imageMin, data);
+                holder.itemQuantity.setText(data.getQuantity() + "");
+
+//               if (data.getQuantity() > 0) {
+//                   data.setQuantity(data.getQuantity()-1);
+//                   holder.itemQuantity.setText(data.getQuantity() + "");
+//               }
             }
         });
 
         holder.imagePlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                data.setQuantity(data.getQuantity()+1);
+//                data.setQuantity(data.getQuantity()+1);
+                updateBarang(holder.imagePlus, data);
                 holder.itemQuantity.setText(data.getQuantity() + "");
             }
         });
+    }
+
+    private void updateBarang(View view, ItemModel data) {
+        if (view.getId() == R.id.image_min) {
+            if (data.getQuantity() > 0) {
+                data.setQuantity(data.getQuantity() - 1);
+            }
+        } else {
+            data.setQuantity(data.getQuantity() + 1);
+        }
     }
 
     @Override

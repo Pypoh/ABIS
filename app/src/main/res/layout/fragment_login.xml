@@ -3,12 +3,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Auth.LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="56sp"
+            android:text="Login"
+            android:layout_marginBottom="24dp"
+            android:textAllCaps="false"/>
+
+        <LinearLayout
+            android:id="@+id/layout_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="32sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username : "/>
+
+            <EditText
+                android:id="@+id/input_username"
+                android:textSize="32sp"
+                android:hint="insert username here"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:textSize="32sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password : "/>
+
+            <EditText
+                android:id="@+id/input_password"
+                android:textSize="32sp"
+                android:hint="insert password here"
+                android:layout_width="wrap_content"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_login"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textSize="32sp"
+            android:padding="24dp"
+            android:layout_marginTop="32dp"
+            />
+
+
+    </LinearLayout>
 
 </FrameLayout>
